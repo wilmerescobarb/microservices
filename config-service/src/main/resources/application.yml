@@ -8,6 +8,6 @@ spring:
     config:
       server:
         git:
-          default-label: gateway #rama
+          default-label: zipkin #rama
           uri: https://github.com/wilmerescobarb/microservices
           search-paths: config-data
