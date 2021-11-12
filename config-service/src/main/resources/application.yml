@@ -1,0 +1,13 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: config-service
+  cloud:
+    config:
+      server:
+        git:
+          default-label: config-server #rama
+          uri: https://github.com/wilmerescobarb/microservices
+          search-paths: config-data
