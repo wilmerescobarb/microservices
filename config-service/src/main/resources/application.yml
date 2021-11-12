@@ -8,6 +8,6 @@ spring:
     config:
       server:
         git:
-          default-label: multiple-instances #rama
+          default-label: gateway #rama
           uri: https://github.com/wilmerescobarb/microservices
           search-paths: config-data
