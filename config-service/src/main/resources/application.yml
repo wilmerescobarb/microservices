@@ -8,6 +8,6 @@ spring:
     config:
       server:
         git:
-          default-label: eureka #rama
+          default-label: multiple-instances #rama
           uri: https://github.com/wilmerescobarb/microservices
           search-paths: config-data
