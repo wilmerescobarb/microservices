@@ -1,6 +1,8 @@
 package com.demo.microservices.controller;
 
 import com.demo.microservices.entity.User;
+import com.demo.microservices.model.Bike;
+import com.demo.microservices.model.Car;
 import com.demo.microservices.repository.UserRepository;
 import com.demo.microservices.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +40,23 @@ public class UserController {
         if(userNew == null)
             return ResponseEntity.noContent().build();
         return ResponseEntity.ok(userNew);
+    }
+
+    @GetMapping("/cars/{userId}")
+    public ResponseEntity<List<Car>> getCarsForUserId(@PathVariable("userId") Long userId){
+        User user = userService.getUserById(userId);
+        if(user==null)
+            return ResponseEntity.notFound().build();
+        List<Car> carsForUserId = userService.getCars(userId);
+        return ResponseEntity.ok(carsForUserId);
+    }
+
+    @GetMapping("/bikes/{userId}")
+    public ResponseEntity<List<Bike>> getBikesForUserId(@PathVariable("userId") Long userId){
+        User user = userService.getUserById(userId);
+        if(user==null)
+            return ResponseEntity.notFound().build();
+        List<Bike> bikesForUserId = userService.getBikes(userId);
+        return ResponseEntity.ok(bikesForUserId);
     }
 }
