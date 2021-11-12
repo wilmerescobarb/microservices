@@ -34,8 +34,6 @@ public class BikeController {
     @GetMapping("/byuser/{userId}")
     public ResponseEntity<List<Bike>> getBikeByUserId(@PathVariable("userId") Long userId){
         List<Bike> bikeById = bikeService.getBikeByUserId(userId);
-        if(bikeById.isEmpty())
-            return ResponseEntity.notFound().build();
         return ResponseEntity.ok(bikeById);
     }
 
